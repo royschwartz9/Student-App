@@ -8,4 +8,5 @@ data class Student(
     var phone: String,
     var avatarUrl: String? =null,
     var isChecked: Boolean
+    //test
 )
