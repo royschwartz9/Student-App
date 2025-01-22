@@ -1,6 +1,5 @@
 package com.example.studentsapp.model
 
-import android.location.Address
 
 data class Student(
     var name: String,
