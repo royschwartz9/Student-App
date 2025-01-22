@@ -7,14 +7,17 @@ class Model private constructor() {
     companion object {
         val shared = Model()
     }
-    init{
-        for(i in 0..20){
-           val student = Student(
-               name="Student $i"
-                ,id="ID $i"
-                ,avatarUrl="https://picsum.photos/200/300"
-                ,isChecked=false
-           )
+
+    init {
+        for (i in 0..20) {
+            val student = Student(
+                name = "Student $i",
+                id = "ID $i",
+                phone = "Phone $i",
+                address = "Address $i",
+                isChecked = false,
+                avatarUrl = null
+            )
             students.add(student)
         }
     }
