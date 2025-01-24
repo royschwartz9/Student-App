@@ -64,20 +64,19 @@ class EditStudentActivity : AppCompatActivity() {
         val saveButton: Button = findViewById(R.id.edit_student_save_button)
         saveButton.setOnClickListener {
             val name = nameEditText.text.toString()
-            val id = idEditText.text.toString()
+            val newId = idEditText.text.toString()
             val phone = phoneEditText.text.toString()
             val address = addressEditText.text.toString()
             val avatarUrl = R.drawable.avatar.toString()
-            val checkBox: CheckBox = findViewById(R.id.edit_student_checkbox)
-            val updatedStudent = Student(name, id, phone, address, avatarUrl, checkBox.isChecked)
+            val isChecked = checkBox.isChecked
 
-            val position = Model.shared.students.indexOfFirst { it.id == id }
+            val position = Model.shared.students.indexOfFirst { it.id == studentId }
             if (position != -1) {
+                val updatedStudent = Student(name, newId, phone, address, avatarUrl, isChecked)
                 Model.shared.students[position] = updatedStudent
             }
             setResult(RESULT_OK)
             finish()
-
         }
     }
 }
