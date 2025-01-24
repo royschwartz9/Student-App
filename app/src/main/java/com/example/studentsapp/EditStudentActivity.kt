@@ -29,11 +29,14 @@ class EditStudentActivity : AppCompatActivity() {
         val studentId = intent.getStringExtra("student_id")
         val studentPhone = intent.getStringExtra("student_phone")
         val studentAddress = intent.getStringExtra("student_address")
+        val isChecked = intent.getBooleanExtra("student_checkbox", false)
 
         val nameEditText: EditText = findViewById(R.id.edit_student_activity_name_edit_text)
         val idEditText: EditText = findViewById(R.id.edit_student_activity_id_edit_text)
         val phoneEditText: EditText = findViewById(R.id.edit_student_activity_phone_edit_text)
         val addressEditText: EditText = findViewById(R.id.edit_student_activity_address_edit_text)
+        val checkBox: CheckBox = findViewById(R.id.edit_student_checkbox)
+        checkBox.isChecked = isChecked
 
 
         nameEditText.setText(studentName)

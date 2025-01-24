@@ -21,4 +21,14 @@ class Model private constructor() {
             students.add(student)
         }
     }
+
+    fun updateStudent(updatedStudent: Student) {
+        students.find { it.id == updatedStudent.id }?.apply {
+            name = updatedStudent.name
+            phone = updatedStudent.phone
+            address = updatedStudent.address
+            avatarUrl = updatedStudent.avatarUrl
+            isChecked = updatedStudent.isChecked
+        }
+    }
 }

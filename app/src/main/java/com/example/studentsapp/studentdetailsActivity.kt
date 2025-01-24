@@ -3,6 +3,7 @@ package com.example.studentsapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,21 +25,28 @@ class studentdetailsActivity : AppCompatActivity() {
 
         val name = intent.getStringExtra("student_name")
         val id = intent.getStringExtra("student_id")
-        val phone = intent.getStringExtra("student_phone")
         val address = intent.getStringExtra("student_address")
+        val phone = intent.getStringExtra("student_phone")
+        val isChecked = intent.getBooleanExtra("student_checkbox", false)
 
         findViewById<TextView>(R.id.student_name_textview).text = name
         findViewById<TextView>(R.id.student_ID_textview).text = id
-        findViewById<TextView>(R.id.student_phone_textview).text = phone
         findViewById<TextView>(R.id.student_address_textview).text = address
+        findViewById<TextView>(R.id.student_phone_textview).text = phone
+        findViewById<CheckBox>(R.id.student_detail_checkbox).apply {
+            this.isChecked = isChecked
+            this.isEnabled = false
+        }
+
 
         val EditStudentButton: Button = findViewById(R.id.student_details_edit_button)
         EditStudentButton.setOnClickListener {
                 val intent = Intent(this, EditStudentActivity::class.java).apply {
                     putExtra("student_name", name)
                     putExtra("student_id", id)
-                    putExtra("student_phone", phone)
                     putExtra("student_address", address)
+                    putExtra("student_phone", phone)
+                    putExtra("student_checkbox", isChecked)
                 }
                 startActivity(intent)
                 finish()

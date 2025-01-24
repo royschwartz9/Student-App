@@ -71,25 +71,29 @@ class studentrcyclerviewActivity : AppCompatActivity() {
            checkBox = itemView.findViewById(R.id.student_row_checkbox)
            avatarImageView = itemView.findViewById(R.id.student_row_imageview)
             checkBox?.apply {
-                setOnClickListener { view -> (tag as? Int)?.let { tag ->
+                setOnClickListener { view ->
+                    (tag as? Int)?.let { tag ->
                         student?.isChecked = (view as? CheckBox)?.isChecked ?: false
-                       }
-                   }
+                        // Update the student in the Model
+                        student?.let { Model.shared.updateStudent(it) }
+                    }
                 }
+            }
                 itemView.setOnClickListener {
                    adapterPosition
                 }
-                itemView.setOnClickListener {
+            itemView.setOnClickListener {
                 student?.let {
                     val intent = Intent(itemView.context, studentdetailsActivity::class.java).apply {
                         putExtra("student_name", it.name)
                         putExtra("student_id", it.id)
                         putExtra("student_phone", it.phone)
                         putExtra("student_address", it.address)
+                        putExtra("student_checkbox", it.isChecked)
                     }
                     itemView.context.startActivity(intent)
-                    }
                 }
+            }
              }
         fun bind(student: Student?, position: Int) {
             this.student = student
