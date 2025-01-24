@@ -9,14 +9,14 @@ class Model private constructor() {
     }
 
     init {
-        for (i in 0..20) {
+        for (i in 0..students.size+5) {
             val student = Student(
                 name = "Student $i",
                 id = "ID $i",
                 phone = "Phone $i",
                 address = "Address $i",
                 isChecked = false,
-                avatarUrl = null
+                avatarUrl = "app/src/main/res/drawable/avatar.png"
             )
             students.add(student)
         }

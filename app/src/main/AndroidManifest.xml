@@ -13,22 +13,22 @@
         android:theme="@style/Theme.StudentsApp"
         tools:targetApi="31">
         <activity
-            android:name=".EditStudentActivity"
+            android:name="com.example.studentsapp.EditStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".studentdetailsActivity"
+            android:name="com.example.studentsapp.studentdetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".AddStudentActivity"
+            android:name="com.example.studentsapp.AddStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".studentrcyclerviewActivity"
+            android:name="com.example.studentsapp.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".StudetslistviewActivity"
+            android:name="com.example.studentsapp.StudetslistviewActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.studentsapp.studentrcyclerviewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -8,6 +8,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.student_app.R
+
 
 class studentdetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,13 +22,6 @@ class studentdetailsActivity : AppCompatActivity() {
             insets
         }
 
-        val EditStudentButton: Button = findViewById(R.id.student_details_edit_button)
-        EditStudentButton.setOnClickListener {
-
-                val intent = Intent(this, EditStudentActivity::class.java)
-                startActivity(intent)
-        }
-
         val name = intent.getStringExtra("student_name")
         val id = intent.getStringExtra("student_id")
         val phone = intent.getStringExtra("student_phone")
@@ -36,6 +31,23 @@ class studentdetailsActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.student_ID_textview).text = id
         findViewById<TextView>(R.id.student_phone_textview).text = phone
         findViewById<TextView>(R.id.student_address_textview).text = address
+
+        val EditStudentButton: Button = findViewById(R.id.student_details_edit_button)
+        EditStudentButton.setOnClickListener {
+                val intent = Intent(this, EditStudentActivity::class.java).apply {
+                    putExtra("student_name", name)
+                    putExtra("student_id", id)
+                    putExtra("student_phone", phone)
+                    putExtra("student_address", address)
+                }
+                startActivity(intent)
+                finish()
+            }
+
+        val BackButton: Button = findViewById(R.id.student_details_back_button)
+        BackButton.setOnClickListener {
+            finish()
+        }
 
     }
 }

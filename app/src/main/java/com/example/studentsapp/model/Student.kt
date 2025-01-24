@@ -6,7 +6,7 @@ data class Student(
     var id: String,
     var address: String,
     var phone: String,
-    var avatarUrl: String? =null,
+    var avatarUrl: String,
     var isChecked: Boolean
     //test
 )
